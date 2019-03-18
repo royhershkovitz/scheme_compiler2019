@@ -1,0 +1,6 @@
+(or (null? 2) (null? '()))
+(or #f (null? 2) 2)
+(or #f #f #f #f #f #f #f 20.5)
+(or #f #f #f #\nul #f #f #f "meka")
+(or #f #f #f "meka" #f #f #f)
+(or #f #f #f #f #f #f)

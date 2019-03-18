@@ -1,0 +1,5 @@
+['/home/royhersh/Documents/2019a/comp191/testing/git/ext/gitdb', '/home/royhersh/Documents/2019a/comp191/testing', '/usr/lib/python36.zip', '/usr/lib/python3.6', '/usr/lib/python3.6/lib-dynload', '/usr/local/lib/python3.6/dist-packages', '/usr/lib/python3/dist-packages']
+/home/royhersh/Documents/2019a/comp191/testing
+	case_1...make..run..cmp..V...done
+	case_2...make..run..cmp..V...done
+OK

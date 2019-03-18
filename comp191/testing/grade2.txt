@@ -1,0 +1,41 @@
+['/home/royhersh/Documents/2019a/comp191/testing/git/ext/gitdb', '/home/royhersh/Documents/2019a/comp191/testing', '/usr/lib/python36.zip', '/usr/lib/python3.6', '/usr/lib/python3.6/lib-dynload', '/usr/local/lib/python3.6/dist-packages', '/usr/lib/python3/dist-packages']
+/home/royhersh/Documents/2019a/comp191/testing
+	case1...done
+	case2...done
+	case3...done
+	case4...done
+	case5...done
+	case6...done
+	case7...done
+	case8...done
+	case9...done
+	case10...done
+	case11...done
+	case12...done
+	case13...done
+	case14...done
+	case15...done
+	case16...done
+	case17...done
+	case18...done
+	case19...done
+	case20...done
+	case21...done
+	case22...done
+	case23...done
+	case24...done
+	case25...done
+	case26...done
+	case27...done
+	case28...done
+	case29...done
+	case30...done
+	case31...done
+	case32...done
+	case33...done
+	case34...done
+	case35...done
+	case36...done
+	case37...done
+	case38...done
+OK

@@ -1,0 +1,153 @@
+(*#use "pc_tester.ml";;
+pc_tester.tester();;*)
+#use "reader.ml";;
+
+Printf.printf "(* BOOLEAN SECTION *)\n";;
+Reader.read_sexpr("#t");;
+Reader.read_sexpr("#T");;
+Reader.read_sexpr("#f");;
+Reader.read_sexpr("#F");;
+
+Reader.read_sexpr(" #t");;
+Reader.read_sexpr("#T ");;
+Reader.read_sexpr(" #T ");;
+Reader.read_sexpr("      #t");;
+Reader.read_sexpr("#t1;");;
+
+Printf.printf "\n\n(* NUMBERS SECTION *)\n";;
+Reader.read_sexpr("1");;
+Reader.read_sexpr("+12");;
+Reader.read_sexpr("  -131312 ");;
+
+Reader.read_sexpr("1.1");;
+Reader.read_sexpr("+1.2");;
+Reader.read_sexpr("-1.3");;
+Reader.read_sexpr("-1.3.1");;
+
+Reader.read_sexpr("#XFC");;
+Reader.read_sexpr("#X+1FC");;
+Reader.read_sexpr("#X-F2C");;
+Reader.read_sexpr("#x11");;
+
+Reader.read_sexpr("#XFC.FC");;
+Reader.read_sexpr("#X+2.2");;
+Reader.read_sexpr("#X-2.3");;
+Reader.read_sexpr("#x2.4");;
+
+Reader.read_sexpr("1e1");;
+Reader.read_sexpr("1E+1");;
+Reader.read_sexpr("10e-1");;
+Reader.read_sexpr("3.14E+9");;
+Reader.read_sexpr("3.14E-512");;
+Reader.read_sexpr("+0000000012.3E0000002");;
+Reader.read_sexpr("-5.000000E-2");;
+
+Printf.printf "\n\n(* SYMBOL SECTION *)\n";;
+Reader.read_sexpr("laMbda");;
+Reader.read_sexpr("!$^*-_=+<>/?");;
+Reader.read_sexpr("!sa!");;
+Reader.read_sexpr("!s1a!3");;
+Reader.read_sexpr("1!sa!");;
+Reader.read_sexprs("12s1a!3 .");;
+
+Printf.printf "\n\n(* STRING SECTION *)\n";;
+Reader.read_sexpr("\"!s1a!3\"");;
+Reader.read_sexpr("\" !s\\t1a!3\"");;
+Reader.read_sexpr("\"!s\\nul1\\f a!3 \"");;
+Reader.read_sexpr("\"!s\\nul1\\\" a!3 \"");;
+Reader.read_sexpr("\"1 \\\" 2 \\t 3 \\nul 4 \\r 5 \\f 6 \\\\ 7\"");;
+Reader.read_sexpr("\"1 \\\" 2 \\x20 3 \\xa 4 \\r 5 \\f 6 \\x5C 7\"");;
+
+Printf.printf "\n\n(* CHAR SECTION *)\n";;
+Reader.read_sexpr("#\\nul");;
+Reader.read_sexpr("#\\space");;
+Reader.read_sexpr("#\\x30");;
+Reader.read_sexpr("#\\xa");;
+Reader.read_sexpr("#\\a");;
+Reader.read_sexpr("#\\?");;
+Reader.read_sexpr("#\\A");;
+
+Printf.printf "\n\n(* COMMENTS&SPACES SECTION *)\n";;
+Reader.read_sexpr("#t;");;
+Reader.read_sexpr("#t;;");;
+Reader.read_sexpr("#t;adsasd");;
+Reader.read_sexpr(" ; dadad\n#t");;
+Reader.read_sexpr("#t  ;adsasd");;
+Reader.read_sexpr("#t  ;");;
+Reader.read_sexpr("#t  ;\n;");;
+Reader.read_sexpr("#t  ;\n  ;");;
+Reader.read_sexpr("#;#t 1 ;\n  ;");;
+Reader.read_sexprs("#;#t 1 2 ;\n 3 ;");;
+Reader.read_sexprs("#; 1 2 3");;
+Reader.read_sexprs("#;#;1 2 3");;
+Reader.read_sexprs("#;#; #; 1 2 3 4");;
+Reader.read_sexprs("#; #; 1 2 3");;
+
+Reader.read_sexprs("#; 1 2 #;3");;
+Reader.read_sexprs("#; #t 1 #; 2;");;
+Reader.read_sexprs("5 #; 1 2 #;3");;
+Reader.read_sexprs("5 #; #t 1 #; 2;");;
+
+Reader.read_sexprs("1 #; 2 #;3 4");;
+Reader.read_sexprs("1 #; 2 3 #;4 5");;
+Reader.read_sexprs("#; #t #; 1 2 ;\n 3 ;");;
+Reader.read_sexprs("#; #; #t 1 2 ;\n 3 ;");;
+Reader.read_sexprs("#;");;
+Reader.read_sexprs("#; #t1 1 2 ;\n 3 ;");;
+Reader.read_sexprs("#; #; #t1 1 2 ;\n 3 ;");;
+
+Printf.printf "\n\n(* NIL SECTION *)\n";;
+Reader.read_sexpr("()");;
+Reader.read_sexpr(" (  )");;
+Reader.read_sexpr(" ( )  ");;
+Reader.read_sexpr("( ...");;
+Reader.read_sexpr("(...");;
+Reader.read_sexprs(" ( ;sam\n )  (  )");;
+Reader.read_sexprs("()()");;
+Reader.read_sexpr(" ( ;sam )");;
+Reader.read_sexprs(") ( ()");;
+
+Printf.printf "\n\n(* PAIR SECTION *)\n";;
+Reader.read_sexpr("(+ 1 2)");;
+Reader.read_sexpr("(+ 1 .2)");;
+Reader.read_sexpr("(let (x 1 \n y 2) + x y)");;
+Reader.read_sexpr("(let ([x 1] \n [y 2]) [+ x y])");;
+Reader.read_sexpr("[1 . 2]");;
+Reader.read_sexpr("(+ 1 . )");;
+Reader.read_sexpr("( . 2)");;
+
+Printf.printf "\n\n(* VECTOR SECTION *)\n";;
+Reader.read_sexpr(" #( 1 )");;
+Reader.read_sexpr(" #( 1 2 3 )");;
+Reader.read_sexpr(" #( a b c 1 2 3 )");;
+
+Printf.printf "\n\n(* QUOTE SECTION *)\n";;
+Reader.read_sexpr("'1");;
+Reader.read_sexpr(",SDFA");;
+Reader.read_sexpr(",@AD");;
+Reader.read_sexpr("`1sDFA");;
+Reader.read_sexpr("`#X-2.3");;
+
+Reader.read_sexprs("1 2 3");;
+Reader.read_sexprs("1 A B 3");;
+
+Printf.printf "\n\n(* THREE DOTS SECTION *)\n";;
+Reader.read_sexpr("( ...");;
+Reader.read_sexpr("(( () ...");;
+Reader.read_sexpr("((()...");;
+Reader.read_sexpr("(+ (1 2 ...");;
+Reader.read_sexprs("(+ (1 2 ...");;
+Reader.read_sexprs("(+ 1 2   ...");;
+Reader.read_sexprs("(1 1) (+ 1 2   ...");;
+
+Printf.printf "\n\n(* THREE DOTS SECTION DOTED LIST *)\n";;
+Reader.read_sexprs("(1 2 . 4 ...");;
+Reader.read_sexprs("(0 (1 2 . 4 ...");;
+Reader.read_sexprs("(1 (0 (1 2 . 4 5 ...");;
+Reader.read_sexprs("(1 2 ( 1 2 3 . 4 ) . 4 ...");;
+Reader.read_sexprs("(1 2 ( 1 2 3 . 4 . 4 ...");;
+Reader.read_sexprs("(1 2 ( 1 2 3 ( 1 2 3 . 4 . 4 . 4 ...");;
+Reader.read_sexprs("0 a (1 2 ( 1 2 3 . 4 4 ... 1 b 2 c 3 d (1 2 ( 1 2 3 . 4 . 4 ...");;
+Reader.read_sexprs("(1 2 ( 1 2 3 ( 1 2 3 . 4 . 4 . 4 ");;
+Reader.read_sexpr("(( (]");;
+Reader.read_sexpr("(( ()");;

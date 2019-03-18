@@ -1,0 +1,5 @@
+(define x 1)
+(begin (set! x (+ x 3)) (+ x 3))
+(begin (set! x (+ x 3)) (+ x 3))
+(begin (set! x (+ x 3)) (+ x 3))
+(begin (set! x (+ x 3)) (+ x 3))

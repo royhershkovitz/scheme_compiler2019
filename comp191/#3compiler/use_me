@@ -1,0 +1,6 @@
+#use "semantic-analyser.ml";;
+open Semantics;; 
+
+run_semantics (LambdaSimple (["x"],
+  Seq [Applic (Var "x", []); Set (Var "x", Applic (Var "x", []))]));;
+  
